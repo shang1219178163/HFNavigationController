@@ -1,0 +1,31 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'HFNavigationController_Example' do
+  pod 'HFNavigationController', :path => '../'
+
+  # pod 'Alamofire'
+  # pod 'AlamofireImage'
+  # pod 'IQKeyboardManagerSwift'
+  # pod 'Kingfisher'
+  # pod 'SDWebImage'
+  # pod 'MBProgressHUD'
+  # pod 'MMPopupView'
+  # pod 'MJRefresh'
+  # pod 'SnapKit'
+  # pod 'SnapKitExtend'
+  # pod 'SwiftExpand'
+  # pod 'HandyJSON'
+  # pod 'RxCocoa'
+  # pod 'RxSwift'
+
+  # pod ‘YYCache'
+  # pod 'YYCategories'
+  # pod 'YYModel'
+
+  target 'HFNavigationController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
