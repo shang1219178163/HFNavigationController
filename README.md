@@ -9,6 +9,8 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+![](https://github.com/shang1219178163/HFNavigationController/blob/master/HFNavigationController.gif?raw=true)
+
 ## Requirements
 
 ## Installation
