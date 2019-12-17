@@ -28,7 +28,7 @@ import HFNavigationController
 
 class HomeViewController: UIViewController {
 
-    lazy var pvcNavController: HFNavigationController = {
+    lazy var navController: HFNavigationController = {
         let controller = HFNavigationController(rootViewController: FisrtViewController())
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
     
     @objc func handleItemRight() {
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-        rootViewController.present(pvcNavController, animated: true, completion: nil)
+        rootViewController.present(navController, animated: true, completion: nil)
         
     }
 }
