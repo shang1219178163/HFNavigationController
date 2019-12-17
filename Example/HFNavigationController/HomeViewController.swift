@@ -11,9 +11,20 @@ import HFNavigationController
 import SnapKit
 
 class HomeViewController: UIViewController {
-        
-    lazy var controller: ThirdViewController = {
-        let controller = ThirdViewController()
+    
+    let frameBottom = CGRect(x: 0,
+                             y: UIScreen.main.bounds.height - UIScreen.main.bounds.height*0.5,
+                             width: UIScreen.main.bounds.width,
+                             height: UIScreen.main.bounds.height*0.5)
+    
+    let frameCenter = CGRect(x: 0,
+                             y: UIScreen.main.bounds.height*0.25,
+                             width: UIScreen.main.bounds.width,
+                             height: UIScreen.main.bounds.height*0.5)
+
+    lazy var controller: HFNavigationController = {
+        let controller = HFNavigationController(rootViewController: ThirdViewController())
+        controller.setNavigationBarHidden(true, animated: false)
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
         return controller;
@@ -35,37 +46,30 @@ class HomeViewController: UIViewController {
     }()
     
     @objc func handleActionSender(_ sender: UISegmentedControl) {        
-        let frameBottom = CGRect(x: 0,
-                                 y: UIScreen.main.bounds.height - UIScreen.main.bounds.height*0.5,
-                                 width: UIScreen.main.bounds.width,
-                                 height: UIScreen.main.bounds.height*0.5)
-        
-        let frameCenter = CGRect(x: 0,
-                                 y: UIScreen.main.bounds.height*0.25,
-                                 width: UIScreen.main.bounds.width,
-                                 height: UIScreen.main.bounds.height*0.5)
-        
+
         switch sender.selectedSegmentIndex {
         case 1:
-            
-            if let presentationController = controller.presentationController as? HFPresentationController{
-                presentationController.defaultFrame = frameCenter
-            }
-            
-            if let presentationController = navController.presentationController as? HFPresentationNavController{
-                presentationController.defaultFrame = frameCenter
-            }
-            
+            controller.setupDefaultFrame(frameCenter)
+            navController.setupDefaultFrame(frameCenter)
+//            if let presentationController = controller.presentationController as? HFPresentationController{
+//                presentationController.defaultFrame = frameCenter
+//            }
+//
+//            if let presentationController = navController.presentationController as? HFPresentationNavController{
+//                presentationController.defaultFrame = frameCenter
+//            }
             
         default:
-            if let presentationController = controller.presentationController as? HFPresentationController{
-                presentationController.defaultFrame = frameBottom
-            }
-            
-            if let presentationController = navController.presentationController as? HFPresentationNavController{
-                presentationController.defaultFrame = frameBottom
-            }
-        }
+            controller.setupDefaultFrame(frameBottom)
+            navController.setupDefaultFrame(frameBottom)
+//            if let presentationController = controller.presentationController as? HFPresentationController{
+//                presentationController.defaultFrame = frameBottom
+//            }
+//
+//            if let presentationController = navController.presentationController as? HFPresentationNavController{
+//                presentationController.defaultFrame = frameBottom
+//            }
+        }        
     }
 
     // MARK: - life cycle

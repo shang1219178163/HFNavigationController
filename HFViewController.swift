@@ -1,5 +1,5 @@
 //
-//  HFNavigationController.swift
+//  HFViewController.swift
 //  Tmp_Example
 //
 //  Created by Bin Shang on 2019/12/16.
@@ -7,15 +7,14 @@
 //
 
 import UIKit
-/// 半屏弹窗导航控制器
-open class HFNavigationController: UINavigationController {
-    
+/// 半屏弹窗控制器
+open class HFViewController: UIViewController {
+
     override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
     // MARK: - funtions
     /// 设置默认位置
     public func setupDefaultFrame(_ rect: CGRect) {
@@ -25,7 +24,7 @@ open class HFNavigationController: UINavigationController {
     }
 }
 
-extension HFNavigationController: UIViewControllerTransitioningDelegate {
+extension HFViewController: UIViewControllerTransitioningDelegate {
 
     public func presentationController(forPresented presented: UIViewController,
                                 presenting: UIViewController?,
@@ -34,5 +33,6 @@ extension HFNavigationController: UIViewControllerTransitioningDelegate {
                                                                presenting: presentingViewController)
         return presentationVC
     }
-
 }
+
+

@@ -1,22 +1,11 @@
 //
-//  HFViewController.swift
-//  Tmp_Example
+//  HFPresentationNavController.swift
+//  HFNavigationController
 //
-//  Created by Bin Shang on 2019/12/16.
-//  Copyright © 2019 CocoaPods. All rights reserved.
+//  Created by Bin Shang on 2019/12/17.
 //
 
 import UIKit
-/// 半屏弹窗控制器
-open class HFViewController: UIViewController {
-
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-}
 
 public class HFPresentationController : UIPresentationController {
     
@@ -28,11 +17,46 @@ public class HFPresentationController : UIPresentationController {
         
     /// 动画持续时间
     public var kAnimDuration: TimeInterval = 0.35;
+    
     /// 初始值默认半屏高度
-    public var defaultFrame = CGRect(x: 0,
-                                     y: UIScreen.main.bounds.height - UIScreen.main.bounds.height*0.5,
-                                     width: UIScreen.main.bounds.width,
-                                     height: UIScreen.main.bounds.height*0.5)
+    private var showFrame = CGRect(x: 0,
+                                   y: UIScreen.main.bounds.height - UIScreen.main.bounds.height*0.5,
+                                    width: UIScreen.main.bounds.width,
+                                    height: UIScreen.main.bounds.height*0.5)
+    
+    public var defaultFrame: CGRect{
+        set{
+            UserDefaults.setArcObject(NSValue(cgRect: newValue), forkey: "defaultFrame")
+            UserDefaults.standard.synchronize()
+        }
+        get{
+            guard let value = UserDefaults.unarcObject(forkey: "defaultFrame") as? NSValue else {
+                return showFrame;
+            }
+            return value.cgRectValue;
+        }
+    }
+    
+//    public var defaultFrame: CGRect{
+//        set{
+//            let data = NSKeyedArchiver.archivedData(withRootObject: NSValue(cgRect: newValue))
+//            UserDefaults.standard.set(data, forKey: "defaultFrame")
+//            UserDefaults.standard.synchronize()
+//        }
+//        get{
+//            guard let data = UserDefaults.standard.object(forKey: "defaultFrame") as? Data else {
+//                return showFrame;
+//            }
+//            guard let value = NSKeyedUnarchiver.unarchiveObject(with: data) as? NSValue else {
+//                return showFrame;
+//            }
+//
+//            if !CGRect.zero.equalTo(value.cgRectValue) {
+//                return value.cgRectValue;
+//            }
+//            return showFrame;
+//        }
+//    }
     /// black layer
     lazy var dimView: UIView = {
         let view = UIView()
@@ -49,20 +73,31 @@ public class HFPresentationController : UIPresentationController {
     public override func presentationTransitionWillBegin() {
         dimView.alpha = 0
         containerView?.addSubview(dimView)
-        UIView.animate(withDuration: 0.5) {
-            self.dimView.alpha = 1
+        if let transitionCoordinator = presentingViewController.transitionCoordinator {
+            transitionCoordinator.animate(alongsideTransition: { (context: UIViewControllerTransitionCoordinatorContext) -> Void in
+                self.dimView.alpha = 1
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: kAnimDuration) {
+                self.dimView.alpha = 1
+            }
         }
     }
     
     /// let dimView's alpha animate to 0 when hide transition will begin.
-    public override func dismissalTransitionWillBegin() {
-        UIView.animate(withDuration: 0.5) {
-            self.dimView.alpha = 0
+    override public func dismissalTransitionWillBegin() {
+        if let transitionCoordinator = presentingViewController.transitionCoordinator {
+            transitionCoordinator.animate(alongsideTransition: { (context: UIViewControllerTransitionCoordinatorContext) -> Void in
+                self.dimView.alpha = 0
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: kAnimDuration) {
+                self.dimView.alpha = 0
+            }
         }
     }
     
     /// remove the dimView when hide transition end
-    ///
     /// - Parameter completed: completed or no
     public override func dismissalTransitionDidEnd(_ completed: Bool) {
         if completed {
@@ -74,7 +109,7 @@ public class HFPresentationController : UIPresentationController {
     public override var frameOfPresentedViewInContainerView: CGRect {
         return defaultFrame
     }
-    
+    /// preferredContentSize 会触发此回调
     public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
 //        print(#function, container.preferredContentSize, frameOfPresentedViewInContainerView)
@@ -95,7 +130,7 @@ public class HFPresentationController : UIPresentationController {
                                      y: self.defaultFrame.minY + self.defaultFrame.height*0.5);
                 self.presentedView?.center = center;
             }
-            
+            print(#function,self.defaultFrame.maxY)
             self.presentedView?.layoutIfNeeded()
         }
     }
@@ -106,16 +141,3 @@ public class HFPresentationController : UIPresentationController {
     }
     
 }
-
-extension HFViewController: UIViewControllerTransitioningDelegate {
-
-    public func presentationController(forPresented presented: UIViewController,
-                                presenting: UIViewController?,
-                                source: UIViewController) -> UIPresentationController? {
-        let presentationVC = HFPresentationController(presentedViewController: presented,
-                                                               presenting: presentingViewController)
-        return presentationVC
-    }
-}
-
-
