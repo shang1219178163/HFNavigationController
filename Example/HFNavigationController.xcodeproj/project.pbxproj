@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1439719223A78FE2009BCB5F /* FisrtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439718C23A78FE2009BCB5F /* FisrtViewController.swift */; };
-		1439719323A78FE2009BCB5F /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439718D23A78FE2009BCB5F /* NSObject+Helper.swift */; };
 		1439719423A78FE2009BCB5F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439718E23A78FE2009BCB5F /* SecondViewController.swift */; };
 		1439719523A78FE2009BCB5F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439718F23A78FE2009BCB5F /* HomeViewController.swift */; };
 		1439719823A7968C009BCB5F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439719723A7968C009BCB5F /* ThirdViewController.swift */; };
+		1439719A23A7A2AF009BCB5F /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */; };
 		146050ED23A3210200C10F34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146050EF23A3210200C10F34 /* InfoPlist.strings */; };
 		146050F323A3212300C10F34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146050F523A3212300C10F34 /* Localizable.strings */; };
 		146050FB23A3228E00C10F34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146050F923A3228E00C10F34 /* LaunchScreen.xib */; };
@@ -36,10 +36,10 @@
 		02910B0CFFEDCBD6B2082AD8 /* HFNavigationController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HFNavigationController.podspec; path = ../HFNavigationController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		06DDEF1F3DBC741C887E19FF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1439718C23A78FE2009BCB5F /* FisrtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FisrtViewController.swift; sourceTree = "<group>"; };
-		1439718D23A78FE2009BCB5F /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSObject+Helper.swift"; path = "../../../Desktop/Tmp/Example/Tmp/NSObject+Helper.swift"; sourceTree = "<group>"; };
 		1439718E23A78FE2009BCB5F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1439718F23A78FE2009BCB5F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1439719723A7968C009BCB5F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
 		146050B523A313C600C10F34 /* HFNavigationController_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HFNavigationController_Example.entitlements; sourceTree = "<group>"; };
 		146050EE23A3210200C10F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		146050F023A3210400C10F34 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				1439719723A7968C009BCB5F /* ThirdViewController.swift */,
 				1439718C23A78FE2009BCB5F /* FisrtViewController.swift */,
 				1439718E23A78FE2009BCB5F /* SecondViewController.swift */,
-				1439718D23A78FE2009BCB5F /* NSObject+Helper.swift */,
+				1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for HFNavigationController";
@@ -369,7 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1439719323A78FE2009BCB5F /* NSObject+Helper.swift in Sources */,
+				1439719A23A7A2AF009BCB5F /* NSObject+Helper.swift in Sources */,
 				1439719423A78FE2009BCB5F /* SecondViewController.swift in Sources */,
 				1439719223A78FE2009BCB5F /* FisrtViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

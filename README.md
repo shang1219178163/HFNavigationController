@@ -22,6 +22,40 @@ it, simply add the following line to your Podfile:
 pod 'HFNavigationController'
 ```
 
+## Usage
+```
+import HFNavigationController
+
+class HomeViewController: UIViewController {
+
+    lazy var pvcNavController: HFNavigationController = {
+        let controller = HFNavigationController(rootViewController: FisrtViewController())
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
+        return controller;
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        edgesForExtendedLayout = []
+        title = Bundle.localizedString(forKey: "半屏显示")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "导航控制器", style: .plain, target: self, action: #selector(handleItemRight))
+        
+    }
+    
+    @objc func handleItemRight() {
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        rootViewController.present(pvcNavController, animated: true, completion: nil)
+        
+    }
+}
+
+
+
+```
+
 ## Author
 
 shang1219178163, shang1219178163@gmail.com

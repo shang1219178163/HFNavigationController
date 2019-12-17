@@ -92,33 +92,15 @@ class HomeViewController: UIViewController {
     }
     
     @objc func handleItemLeft() {
-//        pvc.modalPresentationStyle = .custom
-//        pvc.transitioningDelegate = pvc
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        rootViewController.present(pvc, animated: true, completion: nil)
         
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        rootViewController!.present(pvc, animated: true, completion: nil)
     }
     
     @objc func handleItemRight() {
-
-//        let pvcNavController = HFNavigationController(rootViewController: pvc)
-//        pvcNavController.modalPresentationStyle = .custom
-//        pvcNavController.transitioningDelegate = pvcNavController
-//        pvcNavController.setNavigationBarHidden(true, animated: false)
-        // 设置 defaultFrame 可以使之后的控制器都以默认位置中心变化
-//        if let presentationController = pvcNavController.presentationController as? HalfPresentationNavController{
-//            presentationController.defaultFrame = CGRect(x: 0,
-//                                                         y: UIScreen.main.bounds.height*0.25,
-//                                                         width: UIScreen.main.bounds.width,
-//                                                         height: UIScreen.main.bounds.height*0.5)
-//        }
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        rootViewController.present(pvcNavController, animated: true, completion: nil)
         
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        if rootViewController != nil {
-            rootViewController!.present(pvcNavController, animated: true, completion: nil)
-        } else {
-            print("self.presentedViewController == nil")
-        }
     }
 
 }
