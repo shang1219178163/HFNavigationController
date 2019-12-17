@@ -12,14 +12,14 @@ import SnapKit
 
 class HomeViewController: UIViewController {
         
-    lazy var pvc: ThirdViewController = {
+    lazy var controller: ThirdViewController = {
         let controller = ThirdViewController()
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
         return controller;
     }()
     
-    lazy var pvcNavController: HFNavigationController = {
+    lazy var navController: HFNavigationController = {
         let controller = HFNavigationController(rootViewController: FisrtViewController())
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
@@ -48,26 +48,27 @@ class HomeViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 1:
             
-            if let presentationController = pvc.presentationController as? HFPresentationController{
+            if let presentationController = controller.presentationController as? HFPresentationController{
                 presentationController.defaultFrame = frameCenter
             }
             
-            if let presentationController = pvcNavController.presentationController as? HFPresentationNavController{
+            if let presentationController = navController.presentationController as? HFPresentationNavController{
                 presentationController.defaultFrame = frameCenter
             }
             
             
         default:
-            if let presentationController = pvc.presentationController as? HFPresentationController{
+            if let presentationController = controller.presentationController as? HFPresentationController{
                 presentationController.defaultFrame = frameBottom
             }
             
-            if let presentationController = pvcNavController.presentationController as? HFPresentationNavController{
+            if let presentationController = navController.presentationController as? HFPresentationNavController{
                 presentationController.defaultFrame = frameBottom
             }
         }
     }
 
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,13 +94,13 @@ class HomeViewController: UIViewController {
     
     @objc func handleItemLeft() {
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-        rootViewController.present(pvc, animated: true, completion: nil)
+        rootViewController.present(controller, animated: true, completion: nil)
         
     }
     
     @objc func handleItemRight() {
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-        rootViewController.present(pvcNavController, animated: true, completion: nil)
+        rootViewController.present(navController, animated: true, completion: nil)
         
     }
 
