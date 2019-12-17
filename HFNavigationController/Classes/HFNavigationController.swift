@@ -62,9 +62,15 @@ public class HFPresentationNavController : UIPresentationController {
             self.dimView.alpha = 0
         }
     }
+    /// 伴随动画
+//    override public func dismissalTransitionWillBegin() {
+//        let transitionCoordinator = self.presentingViewController.transitionCoordinator
+//        transitionCoordinator?.animate(alongsideTransition: { (context: UIViewControllerTransitionCoordinatorContext) -> Void in
+//            self.dimView.alpha = 0
+//        }, completion: nil)
+//    }
     
     /// remove the dimView when hide transition end
-    ///
     /// - Parameter completed: completed or no
     public override func dismissalTransitionDidEnd(_ completed: Bool) {
         if completed {
