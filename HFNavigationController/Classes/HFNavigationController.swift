@@ -24,7 +24,7 @@ open class HFNavigationController: UINavigationController {
         }
     }
     
-    /// 设置默认位置
+    /// 设置默认高度
     public func setupDefaultHeight(_ height: CGFloat) {
         if let presentationController = presentationController as? HFPresentationController{
             let rect = CGRect(x: 0,
