@@ -51,24 +51,11 @@ class HomeViewController: UIViewController {
         case 1:
             controller.setupDefaultFrame(frameCenter)
             navController.setupDefaultFrame(frameCenter)
-//            if let presentationController = controller.presentationController as? HFPresentationController{
-//                presentationController.defaultFrame = frameCenter
-//            }
-//
-//            if let presentationController = navController.presentationController as? HFPresentationNavController{
-//                presentationController.defaultFrame = frameCenter
-//            }
-            
+
         default:
             controller.setupDefaultFrame(frameBottom)
             navController.setupDefaultFrame(frameBottom)
-//            if let presentationController = controller.presentationController as? HFPresentationController{
-//                presentationController.defaultFrame = frameBottom
-//            }
-//
-//            if let presentationController = navController.presentationController as? HFPresentationNavController{
-//                presentationController.defaultFrame = frameBottom
-//            }
+
         }        
     }
 
@@ -97,6 +84,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc func handleItemLeft() {
+        controller.setupDefaultHeight(UIScreen.main.bounds.height*0.8)
+        
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         rootViewController.present(controller, animated: true, completion: nil)
         

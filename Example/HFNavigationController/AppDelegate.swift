@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
-        let controller = HomeViewController()
+        let controller = HomeViewController()        
         window?.rootViewController = UINavigationController(rootViewController: controller)
         
         return true

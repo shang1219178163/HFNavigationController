@@ -23,6 +23,17 @@ open class HFNavigationController: UINavigationController {
             presentationController.defaultFrame = rect
         }
     }
+    
+    /// 设置默认位置
+    public func setupDefaultHeight(_ height: CGFloat) {
+        if let presentationController = presentationController as? HFPresentationController{
+            let rect = CGRect(x: 0,
+                                     y: UIScreen.main.bounds.height - height,
+                                     width: UIScreen.main.bounds.width,
+                                     height: height)
+            presentationController.defaultFrame = rect
+        }
+    }
 }
 
 extension HFNavigationController: UIViewControllerTransitioningDelegate {
