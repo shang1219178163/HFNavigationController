@@ -15,7 +15,7 @@ class FisrtViewController: HFViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "FisrtViewController"
+        title = "FisrtVC"
         view.backgroundColor = .green
  
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleItemSave))
@@ -28,7 +28,6 @@ class FisrtViewController: HFViewController {
         navigationController?.pushViewController(controller, animated: true)
         /// 必须放在跳转之后,不然会影响动画交互
         navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.8, height: 250)
-
     }
     
     @objc func handleItemCanell() {

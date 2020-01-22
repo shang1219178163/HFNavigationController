@@ -130,7 +130,7 @@ public class HFPresentationController : UIPresentationController {
                                      y: self.defaultFrame.minY + self.defaultFrame.height*0.5);
                 self.presentedView?.center = center;
             }
-            print(#function,self.defaultFrame.maxY)
+//            print(#function,self.defaultFrame.maxY)
             self.presentedView?.layoutIfNeeded()
         }
     }
