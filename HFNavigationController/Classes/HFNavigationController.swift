@@ -14,6 +14,11 @@ open class HFNavigationController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRootController), name: NSNotification.Name(rawValue: HFPresentationController.dismissKey), object: nil)
+    }
+    
+    @objc func popToRootController() {
+        popToRootViewController(animated: false)
     }
     
     // MARK: - funtions
