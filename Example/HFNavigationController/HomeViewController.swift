@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
         
-        controller.view.layer.cornerRadius = 15
+        controller.view.layer.cornerRadius = 18
         controller.view.layer.masksToBounds = true
         return controller;
     }()
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
         
-        controller.view.layer.cornerRadius = 15
+        controller.view.layer.cornerRadius = 18
         controller.view.layer.masksToBounds = true
         return controller;
     }()
