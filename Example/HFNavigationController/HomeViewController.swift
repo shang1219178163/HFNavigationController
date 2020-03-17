@@ -27,6 +27,9 @@ class HomeViewController: UIViewController {
         controller.setNavigationBarHidden(true, animated: false)
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
+        
+        controller.view.layer.cornerRadius = 15
+        controller.view.layer.masksToBounds = true
         return controller;
     }()
     
@@ -34,6 +37,9 @@ class HomeViewController: UIViewController {
         let controller = HFNavigationController(rootViewController: FisrtViewController())
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
+        
+        controller.view.layer.cornerRadius = 15
+        controller.view.layer.masksToBounds = true
         return controller;
     }()
     
@@ -56,7 +62,7 @@ class HomeViewController: UIViewController {
             controller.setupDefaultFrame(frameBottom)
             navController.setupDefaultFrame(frameBottom)
 
-        }        
+        }
     }
 
     // MARK: - life cycle
@@ -92,6 +98,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func handleItemRight() {
+        
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         rootViewController.present(navController, animated: true, completion: nil)
         
