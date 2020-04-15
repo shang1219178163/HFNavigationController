@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import HFNavigationController
 
 /// 第三步
-class ThirdViewController: HFViewController {
+class ThirdViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class ThirdViewController: HFViewController {
         let controller = SecondViewController()
         navigationController?.pushViewController(controller, animated: true)
         /// 必须放在跳转之后,不然会影响动画交互
-        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.5, height: 250)
+        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.9, height: 300)
     }
     
     @objc func handleItemCanell() {

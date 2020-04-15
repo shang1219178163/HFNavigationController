@@ -129,9 +129,9 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				1439718F23A78FE2009BCB5F /* HomeViewController.swift */,
-				1439719723A7968C009BCB5F /* ThirdViewController.swift */,
 				1439718C23A78FE2009BCB5F /* FisrtViewController.swift */,
 				1439718E23A78FE2009BCB5F /* SecondViewController.swift */,
+				1439719723A7968C009BCB5F /* ThirdViewController.swift */,
 				1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);

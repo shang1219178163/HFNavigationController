@@ -30,7 +30,7 @@ class SecondViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
         /// 必须放在跳转之后,不然会影响动画交互
-        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: 400)
+        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: 500)
     }
     
     @objc func handleItemCanell(_ item: UIBarButtonItem) {

@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import HFNavigationController
 
 /// 第一步
-class FisrtViewController: HFViewController {
+class FisrtViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class FisrtViewController: HFViewController {
         let controller = SecondViewController()
         navigationController?.pushViewController(controller, animated: true)
         /// 必须放在跳转之后,不然会影响动画交互
-        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.8, height: 250)
+        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.9, height: 400)
     }
     
     @objc func handleItemCanell() {
