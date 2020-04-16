@@ -11,10 +11,10 @@
 		1439719423A78FE2009BCB5F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439718E23A78FE2009BCB5F /* SecondViewController.swift */; };
 		1439719523A78FE2009BCB5F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439718F23A78FE2009BCB5F /* HomeViewController.swift */; };
 		1439719823A7968C009BCB5F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439719723A7968C009BCB5F /* ThirdViewController.swift */; };
-		1439719A23A7A2AF009BCB5F /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */; };
 		146050ED23A3210200C10F34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146050EF23A3210200C10F34 /* InfoPlist.strings */; };
 		146050F323A3212300C10F34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146050F523A3212300C10F34 /* Localizable.strings */; };
 		146050FB23A3228E00C10F34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146050F923A3228E00C10F34 /* LaunchScreen.xib */; };
+		1479D5DA244700C4007F7CC4 /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1479D5D9244700C4007F7CC4 /* NSObject+Helper.swift */; };
 		4468881A0AE676E6ABE4D10C /* Pods_HFNavigationController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E333525ACE5F3C355BE93BF9 /* Pods_HFNavigationController_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -39,13 +39,13 @@
 		1439718E23A78FE2009BCB5F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		1439718F23A78FE2009BCB5F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1439719723A7968C009BCB5F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
 		146050B523A313C600C10F34 /* HFNavigationController_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HFNavigationController_Example.entitlements; sourceTree = "<group>"; };
 		146050EE23A3210200C10F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		146050F023A3210400C10F34 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		146050F423A3212300C10F34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		146050F623A3212500C10F34 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		146050FA23A3228E00C10F34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1479D5D9244700C4007F7CC4 /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
 		162C1823F1002CF6BF7B157A /* Pods-HFNavigationController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HFNavigationController_Example.debug.xcconfig"; path = "Target Support Files/Pods-HFNavigationController_Example/Pods-HFNavigationController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4EC4CEDFB239A09049A92344 /* Pods-HFNavigationController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HFNavigationController_Tests.release.xcconfig"; path = "Target Support Files/Pods-HFNavigationController_Tests/Pods-HFNavigationController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5B38D80468D368786C966E5A /* Pods_HFNavigationController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HFNavigationController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +132,7 @@
 				1439718C23A78FE2009BCB5F /* FisrtViewController.swift */,
 				1439718E23A78FE2009BCB5F /* SecondViewController.swift */,
 				1439719723A7968C009BCB5F /* ThirdViewController.swift */,
-				1439719923A7A2AF009BCB5F /* NSObject+Helper.swift */,
+				1479D5D9244700C4007F7CC4 /* NSObject+Helper.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for HFNavigationController";
@@ -369,12 +369,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1439719A23A7A2AF009BCB5F /* NSObject+Helper.swift in Sources */,
 				1439719423A78FE2009BCB5F /* SecondViewController.swift in Sources */,
 				1439719223A78FE2009BCB5F /* FisrtViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				1439719823A7968C009BCB5F /* ThirdViewController.swift in Sources */,
 				1439719523A78FE2009BCB5F /* HomeViewController.swift in Sources */,
+				1479D5DA244700C4007F7CC4 /* NSObject+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,9 +548,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.HFNavigationController-Example123";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HFNavigationController_Example;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -570,9 +571,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.HFNavigationController-Example123";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HFNavigationController_Example;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
