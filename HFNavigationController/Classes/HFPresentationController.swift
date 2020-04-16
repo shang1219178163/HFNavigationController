@@ -9,7 +9,8 @@ import UIKit
 
 public class HFPresentationController : UIPresentationController {
     
-    public static let dismissKey = "HFPresentBottomDismissKey"
+    public static let notiNameDismissKey = NSNotification.Name(rawValue: "HFPresentBottomDismissKey")
+
     /// 屏幕宽度
     public let kScreenWidth: CGFloat = UIScreen.main.bounds.width;
     /// 屏幕高度
@@ -96,12 +97,13 @@ public class HFPresentationController : UIPresentationController {
             }
         }
     }
-    
+
     /// remove the dimView when hide transition end
     /// - Parameter completed: completed or no
     public override func dismissalTransitionDidEnd(_ completed: Bool) {
         if completed {
             dimView.removeFromSuperview()
+            dismiss()
         }
     }
     
@@ -112,17 +114,14 @@ public class HFPresentationController : UIPresentationController {
     /// preferredContentSize 会触发此回调
     public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
-//        print(#function, container.preferredContentSize, frameOfPresentedViewInContainerView)
-    
         if container.preferredContentSize == CGSize.zero {
             return
         }
-        
+
         let rect = CGRect(x: (kScreenWidth - container.preferredContentSize.width)*0.5,
                           y: kScreenHeight - container.preferredContentSize.height,
                           width: container.preferredContentSize.width,
                           height: container.preferredContentSize.height)
-
         UIView.animate(withDuration: kAnimDuration) {
             self.presentedView?.frame = rect;
             if self.defaultFrame.maxY < self.kScreenHeight {
@@ -130,14 +129,14 @@ public class HFPresentationController : UIPresentationController {
                                      y: self.defaultFrame.minY + self.defaultFrame.height*0.5);
                 self.presentedView?.center = center;
             }
-//            print(#function,self.defaultFrame.maxY)
             self.presentedView?.layoutIfNeeded()
+            print("\(#function)_\(container.preferredContentSize)_\(self.defaultFrame)_\(self.presentedView!.frame)")
         }
     }
     
     @objc func dismiss() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: HFPresentationController.dismissKey), object: nil)
-        presentedViewController.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: HFPresentationController.notiNameDismissKey, object: nil)
+//        presentedViewController.dismiss(animated: true, completion: nil)
     }
     
 }

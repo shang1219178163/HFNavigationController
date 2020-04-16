@@ -10,15 +10,32 @@ import UIKit
 /// 半屏弹窗导航控制器
 open class HFNavigationController: UINavigationController {
     
+    lazy var animatorShow: HFTransitionAnimator = {
+        let animator = HFTransitionAnimator(isEnter: true, animateType: .bottom)
+        return animator
+    }()
+    
+    lazy var animatorHide: HFTransitionAnimator = {
+        let animator = HFTransitionAnimator(isEnter: false, animateType: .top)
+        return animator
+    }()
+    
+    // MARK: -lifecycle
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: HFPresentationController.notiNameDismissKey, object: nil)
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(self, selector: #selector(popToRootController), name: NSNotification.Name(rawValue: HFPresentationController.dismissKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(popToRootController), name: HFPresentationController.notiNameDismissKey, object: nil)
     }
     
     @objc func popToRootController() {
         popToRootViewController(animated: false)
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - funtions
@@ -39,6 +56,14 @@ open class HFNavigationController: UINavigationController {
             presentationController.defaultFrame = rect
         }
     }
+    ///设置show/hide动画方式
+    public func setAnimateType(_ type: HFTransitionAnimator.AnimateType, isShow: Bool) {
+        if isShow == true {
+            animatorShow.animateType = type
+        } else {
+            animatorHide.animateType = type
+        }
+    }
 }
 
 extension HFNavigationController: UIViewControllerTransitioningDelegate {
@@ -51,4 +76,11 @@ extension HFNavigationController: UIViewControllerTransitioningDelegate {
         return presentationVC
     }
 
+//    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return animatorShow
+//    }
+//
+//    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return animatorHide
+//    }
 }
