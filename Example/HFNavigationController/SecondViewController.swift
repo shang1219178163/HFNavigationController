@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 /// 第二步
 class SecondViewController: UIViewController {
         
@@ -26,11 +27,12 @@ class SecondViewController: UIViewController {
     }
     
     @objc func handleItemBack(_ item: UIBarButtonItem) {
-        print("handleItemSave")
+        /// 必须放在跳转之后,不然会影响动画交互
+        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: 400)
+        print("\(#function)_\(navigationController!.preferredContentSize)")
         
         navigationController?.popViewController(animated: true)
-        /// 必须放在跳转之后,不然会影响动画交互
-        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: 500)
+
     }
     
     @objc func handleItemCanell(_ item: UIBarButtonItem) {

@@ -26,7 +26,7 @@ class ThirdViewController: UIViewController {
         let controller = SecondViewController()
         navigationController?.pushViewController(controller, animated: true)
         /// 必须放在跳转之后,不然会影响动画交互
-        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.9, height: 300)
+        navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.5, height: 250)
     }
     
     @objc func handleItemCanell() {
