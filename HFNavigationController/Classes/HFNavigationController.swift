@@ -8,14 +8,16 @@
 
 import UIKit
 /// 半屏弹窗导航控制器
-open class HFNavigationController: UINavigationController {
+public class HFNavigationController: UINavigationController {
     
-    lazy var animatorShow: HFTransitionAnimator = {
+    public var tapBackViewDismiss: Bool = false
+    
+    private lazy var animatorShow: HFTransitionAnimator = {
         let animator = HFTransitionAnimator(isEnter: true, animateType: .bottom)
         return animator
     }()
     
-    lazy var animatorHide: HFTransitionAnimator = {
+    private lazy var animatorHide: HFTransitionAnimator = {
         let animator = HFTransitionAnimator(isEnter: false, animateType: .top)
         return animator
     }()
@@ -34,6 +36,9 @@ open class HFNavigationController: UINavigationController {
     }
     
     @objc func popToRootController() {
+        if tapBackViewDismiss == false {
+            return
+        }
         popToRootViewController(animated: false)
         dismiss(animated: true, completion: nil)
     }
