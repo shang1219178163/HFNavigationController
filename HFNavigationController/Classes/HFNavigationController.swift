@@ -8,7 +8,7 @@
 
 import UIKit
 /// 半屏弹窗导航控制器
-public class HFNavigationController: UINavigationController {
+@objcMembers public class HFNavigationController: UINavigationController {
     
     public var tapBackViewDismiss: Bool = false
     
