@@ -10,7 +10,7 @@ import UIKit
 /// 半屏弹窗导航控制器
 @objcMembers public class HFNavigationController: UINavigationController {
     
-    public var tapBackViewDismiss: Bool = false
+    public var tapBackViewDismiss: Bool = true
     
     private lazy var animatorShow: HFTransitionAnimator = {
         let animator = HFTransitionAnimator(isEnter: true, animateType: .bottom)
