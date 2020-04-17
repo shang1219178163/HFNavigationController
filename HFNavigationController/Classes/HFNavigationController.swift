@@ -32,7 +32,14 @@ import UIKit
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(self, selector: #selector(popToRootController), name: HFPresentationController.notiNameDismissKey, object: nil)
+        view.backgroundColor = UIColor.white;
+        modalPresentationStyle = .custom;
+        transitioningDelegate = self;
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(popToRootController),
+                                               name: HFPresentationController.notiNameDismissKey,
+                                               object: nil)
     }
     
     @objc func popToRootController() {
