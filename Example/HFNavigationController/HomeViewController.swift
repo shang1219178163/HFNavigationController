@@ -31,21 +31,17 @@ class HomeViewController: UIViewController {
     lazy var controller: HFNavigationController = {
         let controller = HFNavigationController(rootViewController: ThirdViewController())
         controller.setNavigationBarHidden(true, animated: false)
-        controller.modalPresentationStyle = .custom
-        controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
         
-        controller.view.layer.cornerRadius = 18
+        controller.view.layer.cornerRadius = 15
         controller.view.layer.masksToBounds = true
         return controller;
     }()
     
     lazy var navController: HFNavigationController = {
         let controller = HFNavigationController(rootViewController: FisrtViewController())
-        controller.modalPresentationStyle = .custom
-//        controller.modalTransitionStyle = .crossDissolve
-        controller.transitioningDelegate = controller as UIViewControllerTransitioningDelegate
+        controller.modalTransitionStyle = .crossDissolve
         
-        controller.view.layer.cornerRadius = 18
+        controller.view.layer.cornerRadius = 15
         controller.view.layer.masksToBounds = true
         return controller;
     }()
