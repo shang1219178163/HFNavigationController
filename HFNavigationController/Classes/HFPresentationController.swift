@@ -118,19 +118,24 @@ public class HFPresentationController : UIPresentationController {
             return
         }
 
-        let rect = CGRect(x: (kScreenWidth - container.preferredContentSize.width)*0.5,
-                          y: kScreenHeight - container.preferredContentSize.height,
-                          width: container.preferredContentSize.width,
-                          height: container.preferredContentSize.height)
+        updatePresentedView(container.preferredContentSize)
+    }
+    
+    @objc func updatePresentedView(_ preferredContentSize: CGSize) {
+        let rect = CGRect(x: (kScreenWidth - preferredContentSize.width)*0.5,
+                          y: kScreenHeight - preferredContentSize.height,
+                          width: preferredContentSize.width,
+                          height: preferredContentSize.height)
         UIView.animate(withDuration: kAnimDuration) {
             self.presentedView?.frame = rect;
             if self.defaultFrame.maxY < self.kScreenHeight {
                 let center = CGPoint(x: self.defaultFrame.minX + self.defaultFrame.width*0.5,
                                      y: self.defaultFrame.minY + self.defaultFrame.height*0.5);
                 self.presentedView?.center = center;
+//                print("\(#function)_\(container.preferredContentSize)_\(self.defaultFrame)_\(self.presentedView!.frame)")
+
             }
             self.presentedView?.layoutIfNeeded()
-            print("\(#function)_\(container.preferredContentSize)_\(self.defaultFrame)_\(self.presentedView!.frame)")
         }
     }
     

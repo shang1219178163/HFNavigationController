@@ -26,6 +26,7 @@ import UIKit
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: HFPresentationController.notiNameDismissKey, object: nil)
+        removeObserver(self, forKeyPath: "preferredContentSize", context: nil)
     }
     
     override open func viewDidLoad() {
@@ -40,6 +41,17 @@ import UIKit
                                                selector: #selector(popToRootController),
                                                name: HFPresentationController.notiNameDismissKey,
                                                object: nil)
+        
+        addObserver(self, forKeyPath: "preferredContentSize", options: .new
+            , context: nil)
+    }
+    
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        print("\(NSDate())\(#function)\(keyPath)")
+        if keyPath == "preferredContentSize" {
+            guard let value = change![NSKeyValueChangeKey.newKey] as? NSValue else { return }
+            updatePresentedView(value.cgSizeValue)
+        }
     }
     
     @objc func popToRootController() {
@@ -58,6 +70,11 @@ import UIKit
         }
     }
     
+    public func updatePresentedView(_ preferredContentSize: CGSize) {
+        guard let presentationController = presentationController as? HFPresentationController else { return }
+        presentationController.updatePresentedView(preferredContentSize)
+    }
+    
     /// 设置默认高度
     public func setupDefaultHeight(_ height: CGFloat) {
         if let presentationController = presentationController as? HFPresentationController{
@@ -68,6 +85,7 @@ import UIKit
             presentationController.defaultFrame = rect
         }
     }
+    
     ///设置show/hide动画方式
     public func setAnimateType(_ type: HFTransitionAnimator.AnimateType, isShow: Bool) {
         if isShow == true {
@@ -88,11 +106,11 @@ extension HFNavigationController: UIViewControllerTransitioningDelegate {
         return presentationVC
     }
 
-//    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return animatorShow
-//    }
-//
-//    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return animatorHide
-//    }
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animatorShow
+    }
+
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animatorHide
+    }
 }

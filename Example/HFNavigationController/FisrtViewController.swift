@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftExpand
+import HFNavigationController
 /// 第一步
 class FisrtViewController: UIViewController {
         
@@ -24,9 +25,11 @@ class FisrtViewController: UIViewController {
     @objc func handleItemLeft() {
         let controller = SecondViewController()
         navigationController?.pushViewController(controller, animated: true)
-        /// 必须放在跳转之后,不然会影响动画交互
         navigationController?.preferredContentSize = CGSize(width: UIScreen.main.bounds.width*0.9, height: 250)
-        print("\(#function)_\(navigationController!.preferredContentSize)")
+//        print("\(#function)_\(navigationController!.preferredContentSize)")
+//        if let navController = navigationController as? HFNavigationController{
+//            navController.updatePresentedView(CGSize(width: UIScreen.main.bounds.width*0.9, height: 250))
+//        }
     }
     
     @objc func handleItemCanell() {
