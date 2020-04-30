@@ -18,12 +18,10 @@ public class HFTransitionAnimator: NSObject {
         case right
     }
     
-    var isShow: Bool = true
     var animateType: AnimateType = .fade
     public var duration: TimeInterval = 0.25
 
-    init(isEnter: Bool, animateType: AnimateType) {
-        self.isShow = isEnter
+    init(animateType: AnimateType) {
         self.animateType = animateType
     }
 }
@@ -36,7 +34,6 @@ extension HFTransitionAnimator: UIViewControllerAnimatedTransitioning {
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         HFTransitionAnimator.animateTransition(using: transitionContext,
                                                duration: duration,
-                                               isShow: isShow,
                                                type: animateType)
     }
 }
@@ -45,7 +42,6 @@ extension HFTransitionAnimator {
     
     static func animateTransition(using transitionContext: UIViewControllerContextTransitioning,
                                   duration: TimeInterval,
-                                  isShow: Bool,
                                   type: AnimateType = .fade) {
         
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
@@ -63,6 +59,9 @@ extension HFTransitionAnimator {
         let screenHeight = UIScreen.main.bounds.height
 
 //        print("\(#function)0_\(fromView.frame)_\(toView.frame)")
+        let isShow = (toVC.isMovingToParent || toVC.isBeingPresented)
+//        let isDismiss = fromVC.isMovingFromParent || fromVC.isBeingDismissed
+//        print("\(#function)_isShow:\(isShow)_isDismiss:\(isDismiss)")
 
         var offset: CGVector = .zero
         if type == .left || type == .right {

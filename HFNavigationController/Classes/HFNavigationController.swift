@@ -13,12 +13,12 @@ import UIKit
     public var tapBackViewDismiss: Bool = true
     
     private lazy var animatorShow: HFTransitionAnimator = {
-        let animator = HFTransitionAnimator(isEnter: true, animateType: .bottom)
+        let animator = HFTransitionAnimator(animateType: .bottom)
         return animator
     }()
     
     private lazy var animatorHide: HFTransitionAnimator = {
-        let animator = HFTransitionAnimator(isEnter: false, animateType: .top)
+        let animator = HFTransitionAnimator(animateType: .top)
         return animator
     }()
     
