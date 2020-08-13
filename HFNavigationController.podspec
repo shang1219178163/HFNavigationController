@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HFNavigationController'
-  s.version          = '1.2.1'
+  s.version          = '1.3.0'
   s.summary          = "like Apple' signIn UX"
 
 # This description is used to generate tags and improve search results.

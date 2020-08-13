@@ -10,20 +10,15 @@ import UIKit
 public class HFPresentationController : UIPresentationController {
     
     public static let notiNameDismissKey = NSNotification.Name(rawValue: "HFPresentBottomDismissKey")
-
-    /// 屏幕宽度
-    public let kScreenWidth: CGFloat = UIScreen.main.bounds.width;
-    /// 屏幕高度
-    public let kScreenHeight: CGFloat = UIScreen.main.bounds.height;
         
     /// 动画持续时间
     public var kAnimDuration: TimeInterval = 0.35;
     
     /// 初始值默认半屏高度
     private var showFrame = CGRect(x: 0,
-                                   y: UIScreen.main.bounds.height - UIScreen.main.bounds.height*0.5,
-                                    width: UIScreen.main.bounds.width,
-                                    height: UIScreen.main.bounds.height*0.5)
+                                   y: UIScreen.sizeHeight - UIScreen.sizeHeight*0.5,
+                                   width: UIScreen.sizeWidth,
+                                   height: UIScreen.sizeHeight*0.5)
     
     public var defaultFrame: CGRect{
         set{
@@ -38,26 +33,6 @@ public class HFPresentationController : UIPresentationController {
         }
     }
     
-//    public var defaultFrame: CGRect{
-//        set{
-//            let data = NSKeyedArchiver.archivedData(withRootObject: NSValue(cgRect: newValue))
-//            UserDefaults.standard.set(data, forKey: "defaultFrame")
-//            UserDefaults.standard.synchronize()
-//        }
-//        get{
-//            guard let data = UserDefaults.standard.object(forKey: "defaultFrame") as? Data else {
-//                return showFrame;
-//            }
-//            guard let value = NSKeyedUnarchiver.unarchiveObject(with: data) as? NSValue else {
-//                return showFrame;
-//            }
-//
-//            if !CGRect.zero.equalTo(value.cgRectValue) {
-//                return value.cgRectValue;
-//            }
-//            return showFrame;
-//        }
-//    }
     /// black layer
     lazy var dimView: UIView = {
         let view = UIView()
@@ -117,18 +92,29 @@ public class HFPresentationController : UIPresentationController {
         if container.preferredContentSize == CGSize.zero {
             return
         }
-
         updatePresentedView(container.preferredContentSize)
     }
     
     @objc func updatePresentedView(_ preferredContentSize: CGSize) {
-        let rect = CGRect(x: (kScreenWidth - preferredContentSize.width)*0.5,
-                          y: kScreenHeight - preferredContentSize.height,
+        if preferredContentSize.height >= UIScreen.sizeHeight {
+            let rect = CGRect(x: 0,
+                              y: 0,
+                              width: preferredContentSize.width,
+                              height: preferredContentSize.height)
+              UIView.animate(withDuration: kAnimDuration) {
+                  self.presentedView?.frame = rect;
+                  self.presentedView?.layoutIfNeeded()
+              }
+            return
+        }
+        
+        let rect = CGRect(x: (UIScreen.sizeWidth - preferredContentSize.width)*0.5,
+                          y: UIScreen.sizeHeight - preferredContentSize.height,
                           width: preferredContentSize.width,
                           height: preferredContentSize.height)
         UIView.animate(withDuration: kAnimDuration) {
             self.presentedView?.frame = rect;
-            if self.defaultFrame.maxY < self.kScreenHeight {
+            if self.defaultFrame.maxY < UIScreen.sizeHeight {
                 let center = CGPoint(x: self.defaultFrame.minX + self.defaultFrame.width*0.5,
                                      y: self.defaultFrame.minY + self.defaultFrame.height*0.5);
                 self.presentedView?.center = center;
