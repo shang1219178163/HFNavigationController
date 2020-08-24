@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HFNavigationController'
-  s.version          = '1.3.0'
+  s.version          = '1.3.1'
   s.summary          = "like Apple' signIn UX"
 
 # This description is used to generate tags and improve search results.
@@ -30,8 +30,7 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
   s.requires_arc = true
   # s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage',
-    # 'CoreLocation','CoreTelephony', 'GLKit','QuartzCore', 'WebKit'
-
+    # 'CoreLocation','CoreTelephony','QuartzCore', 'WebKit'
   s.source_files = 'HFNavigationController/Classes/**/*'
   
   # s.resource_bundles = {
