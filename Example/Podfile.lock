@@ -1,9 +1,10 @@
 PODS:
-  - HFNavigationController (1.3.0)
+  - HFNavigationController (1.3.1)
   - SnapKit (4.2.0)
   - SnapKitExtend (1.0.7):
     - SnapKit
-  - SwiftExpand (1.9.7.1)
+  - SwiftExpand (4.8.0):
+    - SnapKit
 
 DEPENDENCIES:
   - HFNavigationController (from `../`)
@@ -21,11 +22,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HFNavigationController: 9a249a8cbbc70d4025132e52a3ee9620da5c83cb
+  HFNavigationController: d24b316ef529db6c7c98080181c8e04fc77c0ed6
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SnapKitExtend: 00ee4db6d1f80bee01a1e75745f2a6ae695ba662
-  SwiftExpand: 60be6b25fc904e3aa9ed8b0326a4f96cf315a74e
+  SwiftExpand: 2d123a00544dbe3716f5c454985020854c71e92d
 
 PODFILE CHECKSUM: ae946392a894e910b3d305e934f525bdafc70555
 
-COCOAPODS: 1.10.0.beta.1
+COCOAPODS: 1.10.0.beta.2
