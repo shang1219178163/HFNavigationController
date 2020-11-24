@@ -37,8 +37,8 @@ class HomeViewController: UIViewController {
 //        return controller;
 //    }()
     
-    lazy var controller: FourViewController = {
-        let controller = FourViewController()        
+    lazy var controller: NNAlertViewController = {
+        let controller = NNAlertViewController()        
         controller.view.layer.cornerRadius = 15
         controller.view.layer.masksToBounds = true
         return controller;

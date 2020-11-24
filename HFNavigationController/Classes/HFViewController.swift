@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// 半屏弹窗控制器
+/// 半屏弹窗控制器(需继承此类)
 @objcMembers open class HFViewController: UIViewController {
     
     public var tapBackViewDismiss: Bool = true
