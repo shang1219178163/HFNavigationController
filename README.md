@@ -9,7 +9,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![](https://github.com/shang1219178163/HFNavigationController/blob/master/HFNavigationController.gif?raw=true)
+![动态效果图](https://github.com/shang1219178163/HFNavigationController/blob/master/HFNavigationController.gif?raw=true)
+
+![控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot.png?raw=true)
+
+![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
 
 ## Requirements
     s.ios.deployment_target = '9.0'
@@ -29,7 +33,14 @@ pod 'HFNavigationController'
 import HFNavigationController
 
 class HomeViewController: UIViewController {
-
+    //控制器弹窗
+    lazy var controller: NNAlertViewController = {
+        let controller = NNAlertViewController()        
+        controller.view.layer.cornerRadius = 15
+        controller.view.layer.masksToBounds = true
+        return controller;
+    }()
+    //导航控制器弹窗
     lazy var navController: HFNavigationController = {
         let controller = HFNavigationController(rootViewController: FisrtViewController())
         controller.modalPresentationStyle = .custom
