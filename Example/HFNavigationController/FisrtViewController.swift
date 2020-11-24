@@ -16,7 +16,7 @@ class FisrtViewController: UIViewController {
         super.viewDidLoad()
         
         title = "FisrtVC"
-        view.backgroundColor = .green
+        view.backgroundColor = .systemGreen
  
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(handleItemLeft))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleItemCanell))

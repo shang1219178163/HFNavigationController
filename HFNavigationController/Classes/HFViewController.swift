@@ -1,14 +1,14 @@
 //
-//  HFNavigationController.swift
-//  Tmp_Example
+//  HFViewController.swift
+//  Pods
 //
-//  Created by Bin Shang on 2019/12/16.
-//  Copyright © 2019 CocoaPods. All rights reserved.
+//  Created by Bin Shang on 2020/11/24.
 //
 
 import UIKit
-/// 半屏弹窗导航控制器
-@objcMembers open class HFNavigationController: UINavigationController {
+
+/// 半屏弹窗控制器
+@objcMembers open class HFViewController: UIViewController {
     
     public var tapBackViewDismiss: Bool = true
     
@@ -38,7 +38,7 @@ import UIKit
         transitioningDelegate = self;
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(popToRootController),
+                                               selector: #selector(dismissController),
                                                name: HFPresentationController.notiNameDismissKey,
                                                object: nil)
         
@@ -46,7 +46,7 @@ import UIKit
             , context: nil)
     }
     
-    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 //        print("\(NSDate())\(#function)\(keyPath)")
         if keyPath == "preferredContentSize" {
             guard let value = change![NSKeyValueChangeKey.newKey] as? NSValue else { return }
@@ -54,11 +54,10 @@ import UIKit
         }
     }
     
-    @objc func popToRootController() {
+    @objc func dismissController() {
         if tapBackViewDismiss == false {
             return
         }
-        popToRootViewController(animated: false)
         dismiss(animated: true, completion: nil)
     }
     
@@ -96,7 +95,7 @@ import UIKit
     }
 }
 
-extension HFNavigationController: UIViewControllerTransitioningDelegate {
+extension HFViewController: UIViewControllerTransitioningDelegate {
 
     public func presentationController(forPresented presented: UIViewController,
                                 presenting: UIViewController?,

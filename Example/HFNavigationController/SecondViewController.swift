@@ -15,7 +15,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         title = "SecondVC"
-        view.backgroundColor = .yellow
+        view.backgroundColor = .systemYellow
  
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleItemSave))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(handleItemBack(_:)))

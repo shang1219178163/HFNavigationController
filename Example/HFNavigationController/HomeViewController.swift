@@ -28,10 +28,17 @@ class HomeViewController: UIViewController {
                           width: UIScreen.main.bounds.width,
                           height: UIScreen.main.bounds.height*0.5)
 
-    lazy var controller: HFNavigationController = {
-        let controller = HFNavigationController(rootViewController: ThirdViewController())
-        controller.setNavigationBarHidden(true, animated: false)
-        
+//    lazy var controller: HFNavigationController = {
+//        let controller = HFNavigationController(rootViewController: ThirdViewController())
+//        controller.setNavigationBarHidden(true, animated: false)
+//
+//        controller.view.layer.cornerRadius = 15
+//        controller.view.layer.masksToBounds = true
+//        return controller;
+//    }()
+    
+    lazy var controller: FourViewController = {
+        let controller = FourViewController()        
         controller.view.layer.cornerRadius = 15
         controller.view.layer.masksToBounds = true
         return controller;

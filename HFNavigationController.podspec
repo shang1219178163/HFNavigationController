@@ -8,15 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HFNavigationController'
-  s.version          = '1.3.1'
+  s.version          = '1.4.0'
   s.summary          = "like Apple' signIn UX"
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = "like Apple' signIn UX..."
 
   s.homepage         = 'https://github.com/shang1219178163/HFNavigationController'
@@ -29,14 +22,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.swift_version = "5.0"
   s.requires_arc = true
-  # s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage',
-    # 'CoreLocation','CoreTelephony','QuartzCore', 'WebKit'
   s.source_files = 'HFNavigationController/Classes/**/*'
   
+  # s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage',
+    # 'CoreLocation','CoreTelephony','QuartzCore', 'WebKit'
   # s.resource_bundles = {
   #   'HFNavigationController' => ['HFNavigationController/Assets/*.png']
   # }
-
+  #
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
