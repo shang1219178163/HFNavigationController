@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HFNavigationController'
-  s.version          = '1.4.0'
+  s.version          = '1.4.1'
   s.summary          = "like Apple' signIn UX"
   s.description      = "like Apple' signIn UX..."
 
