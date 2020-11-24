@@ -142,7 +142,6 @@ class HomeViewController: UIViewController {
 
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         rootViewController.present(controller, animated: true, completion: nil)
-        
     }
     
     @objc func handleItemRight() {
