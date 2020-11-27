@@ -22,6 +22,46 @@ import UIKit
         return animator
     }()
     
+    ///位置尺寸
+    public var defaultFrame: CGRect = .zero {
+        willSet{
+            if newValue.equalTo(.zero) {
+                return
+            }
+            if let presentationController = presentationController as? HFPresentationController{
+                presentationController.defaultFrame = newValue
+            }
+        }
+    }
+    ///中心位置视图尺寸
+    public var defaultSize: CGSize = .zero{
+        willSet{
+            if newValue.equalTo(.zero) {
+                return
+            }
+            let screenSize = UIScreen.main.bounds.size
+            let rect = CGRect(x: (screenSize.width - newValue.width)*0.5,
+                              y: (screenSize.height - newValue.height)*0.5,
+                              width: newValue.width,
+                              height: newValue.height)
+            defaultFrame = rect
+        }
+    }
+    ///到底部高度
+    public var defaultHeight: CGFloat = 0{
+        willSet{
+            if newValue <= 0 {
+                return
+            }
+            let rect = CGRect(x: 0,
+                              y: UIScreen.main.bounds.height - newValue,
+                              width: UIScreen.main.bounds.width,
+                              height: newValue)
+            defaultFrame = rect
+        }
+    }
+
+    
     // MARK: -lifecycle
     
     deinit {
@@ -42,8 +82,7 @@ import UIKit
                                                name: HFPresentationController.notiNameDismissKey,
                                                object: nil)
         
-        addObserver(self, forKeyPath: "preferredContentSize", options: .new
-            , context: nil)
+        addObserver(self, forKeyPath: "preferredContentSize", options: .new, context: nil)
     }
     
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -63,29 +102,37 @@ import UIKit
     }
     
     // MARK: - funtions
-    /// 设置默认位置
+    /// [弃用, 用"defaultFrame"代替]设置默认位置
     public func setupDefaultFrame(_ rect: CGRect) {
         if let presentationController = presentationController as? HFPresentationController{
             presentationController.defaultFrame = rect
         }
     }
     
+    /// [弃用, 用"defaultSize"代替]设置默认尺寸
+    public func setupDefaultSize(_ size: CGSize) {
+        let screenSize = UIScreen.main.bounds.size;
+        let frame = CGRect(x: (screenSize.width - size.width)*0.5,
+                           y: (screenSize.height - size.height)*0.5,
+                           width: size.width,
+                           height: size.height)
+        setupDefaultFrame(frame)
+    }
+    
+    /// [弃用, 用"defaultHeight"代替]设置默认高度
+    public func setupDefaultHeight(_ height: CGFloat) {
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height - height,
+                          width: UIScreen.main.bounds.width,
+                          height: height)
+        setupDefaultFrame(rect)
+    }
+    ///更新视图大小
     public func updatePresentedView(_ preferredContentSize: CGSize) {
         guard let presentationController = presentationController as? HFPresentationController else { return }
         presentationController.updatePresentedView(preferredContentSize)
     }
-    
-    /// 设置默认高度
-    public func setupDefaultHeight(_ height: CGFloat) {
-        if let presentationController = presentationController as? HFPresentationController{
-            let rect = CGRect(x: 0,
-                              y: UIScreen.main.bounds.height - height,
-                              width: UIScreen.main.bounds.width,
-                              height: height)
-            presentationController.defaultFrame = rect
-        }
-    }
-    
+
     ///设置show/hide动画方式
     public func setAnimateType(_ type: HFTransitionAnimator.AnimateType, isShow: Bool) {
         if isShow == true {
