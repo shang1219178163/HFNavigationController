@@ -16,6 +16,7 @@
 		146050FB23A3228E00C10F34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146050F923A3228E00C10F34 /* LaunchScreen.xib */; };
 		1479D5DA244700C4007F7CC4 /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1479D5D9244700C4007F7CC4 /* NSObject+Helper.swift */; };
 		1479D62C244849AB007F7CC4 /* NNAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1479D62B244849AB007F7CC4 /* NNAlertViewController.swift */; };
+		14DFDEA9268C6D7B00FC4438 /* PopoverDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFDEA8268C6D7B00FC4438 /* PopoverDemoController.swift */; };
 		14E2FE4B256D00AF008B0CD6 /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2FE4A256D00AF008B0CD6 /* FourViewController.swift */; };
 		4468881A0AE676E6ABE4D10C /* Pods_HFNavigationController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E333525ACE5F3C355BE93BF9 /* Pods_HFNavigationController_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		146050FA23A3228E00C10F34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1479D5D9244700C4007F7CC4 /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
 		1479D62B244849AB007F7CC4 /* NNAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNAlertViewController.swift; sourceTree = "<group>"; };
+		14DFDEA8268C6D7B00FC4438 /* PopoverDemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDemoController.swift; sourceTree = "<group>"; };
 		14E2FE4A256D00AF008B0CD6 /* FourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
 		162C1823F1002CF6BF7B157A /* Pods-HFNavigationController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HFNavigationController_Example.debug.xcconfig"; path = "Target Support Files/Pods-HFNavigationController_Example/Pods-HFNavigationController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4EC4CEDFB239A09049A92344 /* Pods-HFNavigationController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HFNavigationController_Tests.release.xcconfig"; path = "Target Support Files/Pods-HFNavigationController_Tests/Pods-HFNavigationController_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				14E2FE4A256D00AF008B0CD6 /* FourViewController.swift */,
 				1479D62B244849AB007F7CC4 /* NNAlertViewController.swift */,
 				1479D5D9244700C4007F7CC4 /* NSObject+Helper.swift */,
+				14DFDEA8268C6D7B00FC4438 /* PopoverDemoController.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for HFNavigationController";
@@ -379,6 +382,7 @@
 				1439719223A78FE2009BCB5F /* FisrtViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				1439719823A7968C009BCB5F /* ThirdViewController.swift in Sources */,
+				14DFDEA9268C6D7B00FC4438 /* PopoverDemoController.swift in Sources */,
 				1479D62C244849AB007F7CC4 /* NNAlertViewController.swift in Sources */,
 				1439719523A78FE2009BCB5F /* HomeViewController.swift in Sources */,
 				14E2FE4B256D00AF008B0CD6 /* FourViewController.swift in Sources */,

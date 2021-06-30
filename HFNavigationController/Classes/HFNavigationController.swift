@@ -30,7 +30,7 @@ import UIKit
             }
             if let presentationController = presentationController as? HFPresentationController{
                 presentationController.defaultFrame = newValue
-            }
+            } 
         }
     }
     ///中心位置视图尺寸
@@ -63,7 +63,6 @@ import UIKit
 
     
     // MARK: -lifecycle
-    
     deinit {
         NotificationCenter.default.removeObserver(self, name: HFPresentationController.notiNameDismissKey, object: nil)
         removeObserver(self, forKeyPath: "preferredContentSize", context: nil)
