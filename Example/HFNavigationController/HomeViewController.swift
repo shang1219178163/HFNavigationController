@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
                              height: UIScreen.main.bounds.height*0.5)
     
     let frameTop = CGRect(x: 0,
-                          y: 44,
+                          y: UIScreen.navBarHeight,
                           width: UIScreen.main.bounds.width,
                           height: UIScreen.main.bounds.height*0.5)
 
@@ -74,17 +74,21 @@ class HomeViewController: UIViewController {
 
         switch sender.selectedSegmentIndex {
         case 1:
-            controller.setupDefaultFrame(frameCenter)
-            navController.setupDefaultFrame(frameCenter)
-            
-        case 2:
-            controller.setupDefaultFrame(frameTop)
-            navController.setupDefaultFrame(frameTop)
-            
-        default:
-            controller.setupDefaultFrame(frameBottom)
-            navController.setupDefaultFrame(frameBottom)
+//            controller.setupDefaultFrame(frameCenter)
+//            navController.setupDefaultFrame(frameCenter)
+            controller.defaultFrame = frameCenter
+            navController.defaultFrame = frameCenter
 
+        case 2:
+//            controller.setupDefaultFrame(frameTop)
+//            navController.setupDefaultFrame(frameTop)
+            controller.defaultFrame = frameTop
+            navController.defaultFrame = frameTop
+        default:
+//            controller.setupDefaultFrame(frameBottom)
+//            navController.setupDefaultFrame(frameBottom)
+            controller.defaultFrame = frameBottom
+            navController.defaultFrame = frameBottom
         }
     }
     
@@ -139,6 +143,7 @@ class HomeViewController: UIViewController {
 //        controller.setupDefaultFrame(rect)
 //        controller.setAnimateType(.fade, isShow: true)
 //        controller.setAnimateType(.fade, isShow: false)
+        
 
         guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         rootViewController.present(controller, animated: true, completion: nil)

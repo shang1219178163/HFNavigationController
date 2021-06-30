@@ -95,6 +95,7 @@ public class HFPresentationController : UIPresentationController {
         updatePresentedView(container.preferredContentSize)
     }
     
+    ///更新视图大小
     @objc func updatePresentedView(_ preferredContentSize: CGSize) {
         if preferredContentSize.height >= UIScreen.sizeHeight {
             let rect = CGRect(x: 0,
