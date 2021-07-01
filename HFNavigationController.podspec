@@ -8,9 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HFNavigationController'
-  s.version          = '1.4.2'
+  s.version          = '1.4.3'
   s.summary          = "like Apple' signIn UX"
-  s.description      = "like Apple' signIn UX..."
+  s.description      = "like Apple' signIn UX...(HFNavigationController/HFViewController)"
 
   s.homepage         = 'https://github.com/shang1219178163/HFNavigationController'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -24,13 +24,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'HFNavigationController/Classes/**/*'
   
-  # s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage',
-    # 'CoreLocation','CoreTelephony','QuartzCore', 'WebKit'
-  # s.resource_bundles = {
-  #   'HFNavigationController' => ['HFNavigationController/Assets/*.png']
-  # }
-  #
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
