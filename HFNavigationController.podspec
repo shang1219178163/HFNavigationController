@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.description      = "like Apple' signIn UX...(HFNavigationController/HFViewController)"
 
   s.homepage         = 'https://github.com/shang1219178163/HFNavigationController'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots      = 'https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/HFNavigationController.gif?raw=true'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'shang1219178163' => 'shang1219178163@gmail.com' }
   s.source           = { :git => 'https://github.com/shang1219178163/HFNavigationController.git', :tag => s.version.to_s }
