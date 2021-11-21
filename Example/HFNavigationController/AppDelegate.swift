@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
-//        let vc = HomeViewController()
-        let vc = PopoverDemoController()
+        let vc = HomeViewController()
+//        let vc = PopoverDemoController()
         window?.rootViewController = UINavigationController(rootViewController: vc)
         
         return true

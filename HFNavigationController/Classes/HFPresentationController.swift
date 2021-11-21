@@ -12,7 +12,7 @@ public class HFPresentationController : UIPresentationController {
     public static let notiNameDismissKey = NSNotification.Name(rawValue: "HFPresentBottomDismissKey")
         
     /// 动画持续时间
-    public var kAnimDuration: TimeInterval = 0.35;
+    public var animDuration: TimeInterval = 0.35;
     
     /// 初始值默认半屏高度
     private var showFrame = CGRect(x: 0,
@@ -54,7 +54,7 @@ public class HFPresentationController : UIPresentationController {
                 self.dimView.alpha = 1
             }, completion: nil)
         } else {
-            UIView.animate(withDuration: kAnimDuration) {
+            UIView.animate(withDuration: animDuration) {
                 self.dimView.alpha = 1
             }
         }
@@ -67,7 +67,7 @@ public class HFPresentationController : UIPresentationController {
                 self.dimView.alpha = 0
             }, completion: nil)
         } else {
-            UIView.animate(withDuration: kAnimDuration) {
+            UIView.animate(withDuration: animDuration) {
                 self.dimView.alpha = 0
             }
         }
@@ -102,7 +102,7 @@ public class HFPresentationController : UIPresentationController {
                               y: 0,
                               width: preferredContentSize.width,
                               height: preferredContentSize.height)
-              UIView.animate(withDuration: kAnimDuration) {
+              UIView.animate(withDuration: animDuration) {
                   self.presentedView?.frame = rect;
                   self.presentedView?.layoutIfNeeded()
               }
@@ -113,7 +113,7 @@ public class HFPresentationController : UIPresentationController {
                           y: UIScreen.sizeHeight - preferredContentSize.height,
                           width: preferredContentSize.width,
                           height: preferredContentSize.height)
-        UIView.animate(withDuration: kAnimDuration) {
+        UIView.animate(withDuration: animDuration) {
             self.presentedView?.frame = rect;
             if self.defaultFrame.maxY < UIScreen.sizeHeight {
                 let center = CGPoint(x: self.defaultFrame.minX + self.defaultFrame.width*0.5,

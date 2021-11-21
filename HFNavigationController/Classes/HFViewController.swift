@@ -81,8 +81,7 @@ import UIKit
                                                name: HFPresentationController.notiNameDismissKey,
                                                object: nil)
         
-        addObserver(self, forKeyPath: "preferredContentSize", options: .new
-            , context: nil)
+        addObserver(self, forKeyPath: "preferredContentSize", options: .new, context: nil)
     }
     
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
