@@ -1,5 +1,14 @@
 # HFNavigationController
 
+
+## Author
+
+shang1219178163, shang1219178163@gmail.com
+
+## License
+
+HFNavigationController is available under the MIT license. See the LICENSE file for more info.
+
 [![CI Status](https://img.shields.io/travis/shang1219178163/HFNavigationController.svg?style=flat)](https://travis-ci.org/shang1219178163/HFNavigationController)
 [![Version](https://img.shields.io/cocoapods/v/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 [![License](https://img.shields.io/cocoapods/l/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
@@ -162,10 +171,3 @@ s.version = '1.5.2'
   等待响应超时、而服务端已完成。重试前先用 `pod trunk info HFNavigationController`
   确认版本是否已在 trunk 上，避免重复发布。
 
-## Author
-
-shang1219178163, shang1219178163@gmail.com
-
-## License
-
-HFNavigationController is available under the MIT license. See the LICENSE file for more info.
