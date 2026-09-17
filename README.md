@@ -5,19 +5,22 @@
 [![License](https://img.shields.io/cocoapods/l/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 [![Platform](https://img.shields.io/cocoapods/p/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 
+版本变更记录见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![动态效果图](https://github.com/shang1219178163/HFNavigationController/blob/master/HFNavigationController.gif?raw=true)
+![动态效果图](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/HFNavigationController.gif?raw=true)
 
-![控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot.png?raw=true)
+![控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot.png?raw=true)
 
-![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
+![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
 
 ## Requirements
-    s.ios.deployment_target = '12.0'
-    s.swift_version = "5.0"
+
+- iOS 12.0+
+- Swift 5.0+
 
 ## Installation
 
