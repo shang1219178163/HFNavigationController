@@ -20,11 +20,11 @@ HFNavigationController is available under the MIT license. See the LICENSE file 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+<p>
 <img src="https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/HFNavigationController.gif?raw=true" alt="动态效果图" width="30%">
-
 <img src="https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot.png?raw=true" alt="控制器弹窗" width="30%">
-
 <img src="https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot1.png?raw=true" alt="导航控制器弹窗" width="30%">
+</p>
 
 ## Requirements
 
