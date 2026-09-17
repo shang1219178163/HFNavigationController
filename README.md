@@ -16,7 +16,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
 
 ## Requirements
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '12.0'
     s.swift_version = "5.0"
 
 ## Installation
