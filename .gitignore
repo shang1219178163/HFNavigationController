@@ -38,3 +38,7 @@ Pods/
 
 # graphify
 graphify-out/
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved

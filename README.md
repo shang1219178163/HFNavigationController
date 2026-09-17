@@ -28,6 +28,27 @@ it, simply add the following line to your Podfile:
 pod 'HFNavigationController'
 ```
 
+It is also available through [Swift Package Manager](https://www.swift.org/package-manager/).
+Add the following to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/shang1219178163/HFNavigationController.git", from: "1.5.0")
+]
+```
+
+Then add `HFNavigationController` to your target's dependencies:
+
+```swift
+targets: [
+    .target(name: "YourApp", dependencies: ["HFNavigationController"])
+]
+```
+
+> **注意**：本库最低支持 iOS 12.0，请在消费方的 manifest 中声明
+> `platforms: [.iOS(.v12)]`。SPM 不会自动抬高你的部署目标，若低于 12.0 会在
+> 你这边报错。
+
 ## Usage
 ```
 import HFNavigationController
