@@ -95,8 +95,17 @@ updatePod(){
 #    git push -u origin master || exit 1
     git push || exit 1
 
-    echo_green "--- Step: add tag to local reposit：`git log -1 --pretty=format:"%s"`---"
-    git tag -a ${version} -m "`git log -1 --pretty=format:"%s"`" || exit 1
+    # tag 是 SPM 的不可变契约，必须在打 tag 之前校验 manifest，
+    # 否则坏掉的 Package.swift 会随 tag 永久固化、无法重打。
+    if [ -f "Package.swift" ]; then
+        echo_green "--- Step: verify package manifest ---"
+        swift package dump-package > /dev/null || exit 1
+    fi
+
+    # tag 消息固定为 Release <版本号>：原先复用上一条提交的主题，
+    # 会导致版本 N 的 tag 挂着版本 N-1 的说明。
+    echo_green "--- Step: add tag to local reposit：Release ${version} ---"
+    git tag -a ${version} -m "Release ${version}" || exit 1
 
     echo_green "--- Step: push tag to remote reposit ---"
     git push --tags || exit 1

@@ -5,19 +5,22 @@
 [![License](https://img.shields.io/cocoapods/l/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 [![Platform](https://img.shields.io/cocoapods/p/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 
+版本变更记录见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![动态效果图](https://github.com/shang1219178163/HFNavigationController/blob/master/HFNavigationController.gif?raw=true)
+![动态效果图](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/HFNavigationController.gif?raw=true)
 
-![控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot.png?raw=true)
+![控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot.png?raw=true)
 
-![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/develop/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
+![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
 
 ## Requirements
-    s.ios.deployment_target = '9.0'
-    s.swift_version = "5.0"
+
+- iOS 12.0+
+- Swift 5.0+
 
 ## Installation
 
@@ -27,6 +30,27 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'HFNavigationController'
 ```
+
+It is also available through [Swift Package Manager](https://www.swift.org/package-manager/).
+Add the following to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/shang1219178163/HFNavigationController.git", from: "1.5.0")
+]
+```
+
+Then add `HFNavigationController` to your target's dependencies:
+
+```swift
+targets: [
+    .target(name: "YourApp", dependencies: ["HFNavigationController"])
+]
+```
+
+> **注意**：本库最低支持 iOS 12.0，请在消费方的 manifest 中声明
+> `platforms: [.iOS(.v12)]`。SPM 不会自动抬高你的部署目标，若低于 12.0 会在
+> 你这边报错。
 
 ## Usage
 ```

@@ -35,3 +35,10 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 Pods/
+
+# graphify
+graphify-out/
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
