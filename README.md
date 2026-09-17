@@ -5,17 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 [![Platform](https://img.shields.io/cocoapods/p/HFNavigationController.svg?style=flat)](https://cocoapods.org/pods/HFNavigationController)
 
-版本变更记录见 [CHANGELOG.md](CHANGELOG.md)。
+版本变更记录见 [CHANGELOG.md](CHANGELOG.md)。维护者发版流程见[发布](#发布)。
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![动态效果图](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/HFNavigationController.gif?raw=true)
+<img src="https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/HFNavigationController.gif?raw=true" alt="动态效果图" width="30%">
 
-![控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot.png?raw=true)
+<img src="https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot.png?raw=true" alt="控制器弹窗" width="30%">
 
-![导航控制器弹窗](https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot1.png?raw=true)
+<img src="https://github.com/shang1219178163/HFNavigationController/blob/master/screenshots/Simulator%20Screen%20Shot1.png?raw=true" alt="导航控制器弹窗" width="30%">
 
 ## Requirements
 
@@ -91,6 +91,76 @@ class HomeViewController: UIViewController {
 }
 
 ```
+
+## 发布
+
+> 本节面向本仓库维护者。`update.sh` 会提交、推送、打 tag 并把版本发布到
+> CocoaPods trunk，**最后一步不可撤销**，请确认无误后再执行。
+
+### 用法
+
+脚本从**仓库根目录**运行，并通过**目录名**推导 podspec 文件名
+（目录 `HFNavigationController` → `HFNavigationController.podspec`）：
+
+```bash
+./update.sh
+```
+
+终端编码需为 UTF-8：
+
+```bash
+LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 ./update.sh
+```
+
+### 发版步骤
+
+**1. 修改 podspec 版本号**
+
+```ruby
+s.version = '1.5.2'
+```
+
+**2. 在 CHANGELOG.md 中补上对应版本的条目**
+
+**3. 确认工作区状态**
+
+脚本使用 `git add .`，会把工作区中所有改动一并提交，包括构建脚本刷新的
+`Example/HFNavigationController/Info.plist` 中的 `CFBundleVersion` 时间戳。
+建议先 `git status` 确认没有不该提交的内容。
+
+**4. 执行脚本**
+
+```bash
+./update.sh
+```
+
+### 脚本执行流程
+
+`update.sh` 读取 podspec 中的版本号，依次执行：
+
+| 步骤 | 动作 |
+| --- | --- |
+| 1 | `git pull` 拉取远端 |
+| 2 | `git add .` + `git commit` |
+| 3 | `git push` 推送分支 |
+| 4 | `swift package dump-package` 校验 `Package.swift` |
+| 5 | `git tag -a <版本号> -m "Release <版本号>"` |
+| 6 | `git push --tags` 推送 tag |
+| 7 | `pod trunk push` 发布到 CocoaPods trunk |
+
+第 4 步的 manifest 校验在打 tag **之前**执行：tag 是 Swift Package Manager 的
+不可变契约，一旦随损坏的 `Package.swift` 发布就无法补救。
+
+### 注意事项
+
+- **必须使用三段式版本号**（如 `1.5.2`）。四段式（如 `1.0.5.1`）不符合语义化
+  版本规范，Swift Package Manager 无法解析。
+- **已发布的 tag 不要移动**。改动已发布 tag 的指向会导致 Swift Package Manager
+  的安全指纹校验失败（`does not match previously recorded value`）。需要修正时
+  请发布新版本号。
+- **`pod trunk push` 报 `Net::OpenTimeout` 不代表发布失败**。该错误可能是客户端
+  等待响应超时、而服务端已完成。重试前先用 `pod trunk info HFNavigationController`
+  确认版本是否已在 trunk 上，避免重复发布。
 
 ## Author
 
