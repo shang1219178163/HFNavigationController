@@ -1,5 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
+platform :ios, '12.0'
 
 target 'HFNavigationController_Example' do
   pod 'HFNavigationController', :path => '../'
@@ -14,18 +15,28 @@ target 'HFNavigationController_Example' do
   # pod 'MJRefresh'
   # pod 'SnapKit'
    pod 'SnapKitExtend'
-   pod 'SwiftExpand'
+   pod 'SwiftExpand', '~> 4.8.1'
   # pod 'HandyJSON'
   # pod 'RxCocoa'
   # pod 'RxSwift'
 
-  # pod ‘YYCache'
+  # pod 'YYCache'
   # pod 'YYCategories'
   # pod 'YYModel'
 
   target 'HFNavigationController_Tests' do
     inherit! :search_paths
 
-    
+
+  end
+end
+
+# Xcode 15+ 移除了 libarclite：任何部署目标低于 12.0 的 target 都会链接失败。
+# SnapKit(8.0)/SwiftExpand(9.0) 的 podspec 声明偏低，这里统一抬到 12.0。
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    end
   end
 end
