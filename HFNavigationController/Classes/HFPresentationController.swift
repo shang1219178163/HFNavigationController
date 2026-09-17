@@ -82,10 +82,40 @@ public class HFPresentationController : UIPresentationController {
         }
     }
     
+    /// preferredContentSize 指定过的尺寸；未指定时为 .zero，此时沿用 defaultFrame
+    private var preferredSize: CGSize = .zero
+
     /// define the frame of bottom view
+    /// 与 updatePresentedView 共用同一套计算，避免转场动画的 finalFrame
+    /// 覆盖掉 preferredContentSize 算出的尺寸，导致进出时高度跳变
     public override var frameOfPresentedViewInContainerView: CGRect {
-        return defaultFrame
+        return frameForPresentedView()
     }
+
+    private func frameForPresentedView() -> CGRect {
+        guard preferredSize != .zero else {
+            return defaultFrame
+        }
+        if preferredSize.height >= UIScreen.sizeHeight {
+            return CGRect(x: 0,
+                          y: 0,
+                          width: preferredSize.width,
+                          height: preferredSize.height)
+        }
+        let rect = CGRect(x: (UIScreen.sizeWidth - preferredSize.width)*0.5,
+                          y: UIScreen.sizeHeight - preferredSize.height,
+                          width: preferredSize.width,
+                          height: preferredSize.height)
+        // 非贴底配置（center/top）时以 defaultFrame 中心对齐，与原有行为一致
+        if defaultFrame.maxY < UIScreen.sizeHeight {
+            return CGRect(x: defaultFrame.midX - rect.width*0.5,
+                          y: defaultFrame.midY - rect.height*0.5,
+                          width: rect.width,
+                          height: rect.height)
+        }
+        return rect
+    }
+
     /// preferredContentSize 会触发此回调
     public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
@@ -94,34 +124,12 @@ public class HFPresentationController : UIPresentationController {
         }
         updatePresentedView(container.preferredContentSize)
     }
-    
+
     ///更新视图大小
     @objc func updatePresentedView(_ preferredContentSize: CGSize) {
-        if preferredContentSize.height >= UIScreen.sizeHeight {
-            let rect = CGRect(x: 0,
-                              y: 0,
-                              width: preferredContentSize.width,
-                              height: preferredContentSize.height)
-              UIView.animate(withDuration: animDuration) {
-                  self.presentedView?.frame = rect;
-                  self.presentedView?.layoutIfNeeded()
-              }
-            return
-        }
-        
-        let rect = CGRect(x: (UIScreen.sizeWidth - preferredContentSize.width)*0.5,
-                          y: UIScreen.sizeHeight - preferredContentSize.height,
-                          width: preferredContentSize.width,
-                          height: preferredContentSize.height)
+        preferredSize = preferredContentSize
         UIView.animate(withDuration: animDuration) {
-            self.presentedView?.frame = rect;
-            if self.defaultFrame.maxY < UIScreen.sizeHeight {
-                let center = CGPoint(x: self.defaultFrame.minX + self.defaultFrame.width*0.5,
-                                     y: self.defaultFrame.minY + self.defaultFrame.height*0.5);
-                self.presentedView?.center = center;
-//                print("\(#function)_\(container.preferredContentSize)_\(self.defaultFrame)_\(self.presentedView!.frame)")
-
-            }
+            self.presentedView?.frame = self.frameForPresentedView()
             self.presentedView?.layoutIfNeeded()
         }
     }
